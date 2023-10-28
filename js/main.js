@@ -4,7 +4,7 @@
 const buttons = document.querySelectorAll("#buttonsContainer > button");
 const audios = document.querySelectorAll("#audiosContainer > audio");
 
-//Styles and click play:
+//Events click:
 for (let btn of buttons) {
   btn.addEventListener("click", () => {
     //STYLES:
@@ -20,6 +20,24 @@ for (let btn of buttons) {
   });
 }
 
+//Events keys:
+document.body.addEventListener("keydown", (event) => {
+  const key = event.key;
+  playSoundsKey(keysArray[key]);
+});
+
+const keysArray = {
+  Enter: "snare",
+  " ": "kick",
+  u: "ride",
+  t: "tom_high",
+  e: "tom_low",
+  r: "tom_mid",
+  p: "crash",
+  o: "hihat_close",
+  i: "hihat_open",
+};
+
 // Functions:
 function playSound(id) {
   for (let audio of audios) {
@@ -34,36 +52,10 @@ function playSound(id) {
   }
 }
 
-//Keys play:
-document.body.addEventListener("keydown", (event) => {
+function playSoundsKey(key) {
   for (let audio of audios) {
-    if (event.key === "Enter" && audio.className === "snare") {
-      audio.play();
-      break;
-    }
-    if (event.key === " " && audio.className === "kick") {
-      audio.play();
-    }
-    if (event.key === "t" && audio.className === "tom_high") {
-      audio.play();
-    }
-    if (event.key === "r" && audio.className === "tom_mid") {
-      audio.play();
-    }
-    if (event.key === "e" && audio.className === "tom_low") {
-      audio.play();
-    }
-    if (event.key === "p" && audio.className === "crash") {
-      audio.play();
-    }
-    if (event.key === "o" && audio.className === "hihat_close") {
-      audio.play();
-    }
-    if (event.key === "i" && audio.className === "hihat_open") {
-      audio.play();
-    }
-    if (event.key === "u" && audio.className === "ride") {
+    if (audio.className === key) {
       audio.play();
     }
   }
-});
+}
