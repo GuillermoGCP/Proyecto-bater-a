@@ -1,37 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto batería</title>
+    <title>Drum Pad</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-
+  <header>
+    <h1>AKAI</h1>
+    <h2>MPC-II</h2>
+    <p>by RosGuiRu-is</p>
+  </header>
   <body>
-    <section id="audiosContainer">
-      <audio class="crash" src="./audio/crash.wav"></audio>
-      <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
-      <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
-      <audio class="kick" src="./audio/kick.wav"></audio>
-      <audio class="ride" src="./audio/ride.wav"></audio>
-      <audio class="snare" src="./audio/snare.wav"></audio>
-      <audio class="tom_high" src="./audio/tom-high.wav"></audio>
-      <audio class="tom_low" src="./audio/tom-low.wav"></audio>
-      <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
-    </section>
+    <div class="container">
+      <button class="drum-pad" data-sound="crash.wav">crash</button>
+      <button class="drum-pad" data-sound="hihat-close.wav">hat-close</button>
+      <button class="drum-pad" data-sound="hihat-open.wav">hat-open</button>
+      <button class="drum-pad" data-sound="kick.wav">kick</button>
+      <button class="drum-pad" data-sound="ride.wav">ride</button>
+      <button class="drum-pad" data-sound="snare.wav">snare</button>
+      <button class="drum-pad" data-sound="tom-high.wav">tom-high</button>
+      <button class="drum-pad" data-sound="tom-low.wav">tom-low</button>
+      <button class="drum-pad" data-sound="tom-mid.wav">tom-mid</button>
+    </div>
 
-    <section id="buttonsContainer">
-      <button id="crash">crash</button>
-      <button id="hihat_close">hithat-close</button>
-      <button id="hihat_open">hithat-open</button>
-      <button id="kick">Kick</button>
-      <button id="ride">Ride</button>
-      <button id="snare">Snare</button>
-      <button id="tom_high">Tom High</button>
-      <button id="tom_low">Tom Low</button>
-      <button id="tom_mid">Tom Mid</button>
-    </section>
+    <!-- contenedor ross -->
+    <div id="nuevoContenedor">Hola Ross!!</div>
 
-    <script type="module" src="./js/main.js"></script>
+    <div class="contenedorPantalla">
+      <div class="contenidoPantalla">
+        <!-- <p>Ross, Guille, Ruth, Luis</p> -->
+      </div>
+    </div>
+
+    <div class="small-buttons-container">
+      <button class="small-drum-pad" id="record">🔴 Rec</button>
+      <button class="small-drum-pad">▶️ Play</button>
+      <button class="small-drum-pad">⏹️ Stop</button>
+    </div>
+
+    <!-- control de volumen -->
+    <input
+      id="volume-slider"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1"
+    />
+
+    <button class="round-button"></button>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>

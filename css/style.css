@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d4d1d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+.container {
+  background-color: rgb(46, 45, 45);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.drum-pad {
+  width: 200px;
+  height: 200px;
+  background-color: #555;
+  border: 2px solid #777;
+  border-radius: 10px;
+  /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.drum-pad:hover {
+  background-color: #777;
+}
+
+.small-buttons-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 100px;
+  margin-top: 400px;
+}
+
+.small-drum-pad {
+  margin: 4px;
+  width: 120px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 2px solid #c0bdbd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 1s;
+  box-shadow: -3px 0 6px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.small-drum-pad:hover {
+  background-color: #dddbdb;
+}
+
+#record {
+  background-color: red;
+  border: 2px solid rgb(245, 140, 140);
+}
+
+#record:hover {
+  background-color: rgb(233, 99, 99);
+  border: 2px solid rgb(233, 61, 61);
+}
+
+#nuevoContenedor {
+  width: 58vh;
+  height: 500px;
+  background-color: #1b3166;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  top: 103px;
+}
+
+.contenedorPantalla {
+  width: 58vh;
+  height: 30vh;
+  background-color: #1d1d1e;
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  border: 2px solid #525151;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.contenidoPantalla {
+  width: 70%;
+  height: 70%;
+  background-color: #111;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1c1b1b;
+}
+
+.contenidoPantalla p {
+  color: #3a37bd;
+  padding: 10px;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(223, 11, 11);
+  font-size: 19vh;
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  position: absolute;
+  left: 50px;
+  top: 320px;
+}
+
+h2 {
+  color: rgb(73, 73, 73);
+  font-size: 8vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: flex;
+  position: absolute;
+  left: 180px;
+  bottom: 390px;
+}
+
+p {
+  color: #fff;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 3vh;
+  font-style: oblique;
+  display: flex;
+  position: absolute;
+  left: 180px;
+  bottom: 390px;
+}
+
+.round-button {
+  width: 250px;
+  height: 250px;
+  background-color: #161616;
+  border: 2px solid #504f4f;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100px;
+  left: 180px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.round-button::before,
+.round-button::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 50%;
+  border: 2px solid #1d1d1d;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.round-button::after {
+  width: 40%;
+  height: 40%;
+  border: 2px solid #000;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+#volume-slider {
+  width: 100px; /* Ancho del control deslizante */
+  height: 20px; /* Altura del control deslizante */
+  position: absolute;
+  bottom: 10px; /* Alineación en la esquina inferior derecha */
+  right: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #333; /* Color de fondo del control deslizante */
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px; /* Ancho del control deslizante deslizante */
+  height: 40px; /* Altura del control deslizante deslizante */
+  background-color: #cec9c9; /* Color de fondo del control deslizante deslizante */
+  border: 2px solid #dfdddd; /* Borde del control deslizante deslizante */
+  border-radius: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
