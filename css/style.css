@@ -87,7 +87,7 @@ body {
   border: 2px solid rgb(233, 61, 61);
 }
 
-#nuevoContenedor {
+/* #nuevoContenedor {
   width: 58vh;
   height: 500px;
   background-color: #1b3166;
@@ -96,8 +96,51 @@ body {
   position: absolute;
   right: 10px;
   top: 103px;
+} */
+/* Codigo Ross */
+h3 {
+  border: solid;
 }
 
+#buttonsContainer2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  padding-left: 3px;
+  padding-right: 3px;
+  /* padding-bottom: 7px;
+padding-top: 5px; */
+  max-width: 50%;
+  max-height: 60%;
+  border: 2px solid;
+  border-color: rgb(128, 128, 128, 20%);
+  background-color: rgb(128, 128, 128);
+  border-radius: 2%;
+}
+
+.buttons2 {
+  /* margin: bottom 3px; */
+  margin: 5px;
+  padding-top: 10px;
+  padding: 5px;
+  width: 30%;
+  height: 70px;
+  letter-spacing: 1px;
+  font-size: 10px;
+  font-weight: 999;
+  border: 2px solid;
+  border-color: rgb(234, 250, 241, 20%);
+  background-color: rgb(193, 188, 172);
+  border-radius: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons2:hover {
+  background-color: rgb(213, 245, 227);
+}
+
+/* Termina Ross */
 .contenedorPantalla {
   width: 58vh;
   height: 30vh;
