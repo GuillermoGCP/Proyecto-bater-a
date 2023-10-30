@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto batería</title>
+    <title>Drum Pad</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-
+  <header>
+    <h1>AKAI</h1>
+    <h2>MPC-II</h2>
+    <p>by RosGuiRu-is</p>
+  </header>
   <body>
-    <section id="audiosContainer">
-      <audio class="crash" src="./audio/crash.wav"></audio>
-      <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
-      <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
-      <audio class="kick" src="./audio/kick.wav"></audio>
-      <audio class="ride" src="./audio/ride.wav"></audio>
-      <audio class="snare" src="./audio/snare.wav"></audio>
-      <audio class="tom_high" src="./audio/tom-high.wav"></audio>
-      <audio class="tom_low" src="./audio/tom-low.wav"></audio>
-      <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
-    </section>
-
     <section id="buttonsContainer">
       <button id="crash">crash</button>
       <button id="hihat_close">hithat-close</button>
@@ -32,6 +24,45 @@
       <button id="tom_mid">Tom Mid</button>
     </section>
 
-    <script type="module" src="./js/main.js"></script>
+    <section id="audiosContainer">
+      <audio class="crash" src="./audio/crash.wav"></audio>
+      <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
+      <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
+      <audio class="kick" src="./audio/kick.wav"></audio>
+      <audio class="ride" src="./audio/ride.wav"></audio>
+      <audio class="snare" src="./audio/snare.wav"></audio>
+      <audio class="tom_high" src="./audio/tom-high.wav"></audio>
+      <audio class="tom_low" src="./audio/tom-low.wav"></audio>
+      <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
+    </section>
+
+    <!-- contenedor ross -->
+    <div id="nuevoContenedor">Hola Ross!!</div>
+
+    <div class="contenedorPantalla">
+      <div class="contenidoPantalla">
+        <!-- <p>Ross, Guille, Ruth, Luis</p> -->
+      </div>
+    </div>
+
+    <div class="small-buttons-container">
+      <button class="small-drum-pad" id="record">🔴 Rec</button>
+      <button class="small-drum-pad">▶️ Play</button>
+      <button class="small-drum-pad">⏹️ Stop</button>
+    </div>
+
+    <!-- control de volumen -->
+    <input
+      id="volume-slider"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="1"
+    />
+
+    <button class="round-button"></button>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
