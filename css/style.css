@@ -1,198 +1,37 @@
+/* Estilos generales */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
 }
 
 body {
   font-family: Arial, sans-serif;
   background-color: #d4d1d1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  margin: 0;
-  position: relative;
 }
 
-#buttonsContainer {
-  background-color: rgb(46, 45, 45);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 50px;
-  border-radius: 5px;
-}
-
-#buttonsContainer > button {
-  width: 200px;
-  height: 200px;
-  background-color: #555;
-  border: 2px solid #777;
-  border-radius: 10px;
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-  cursor: pointer;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background-color 0.2s;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-#buttonsContainer > button:hover {
-  background-color: #777;
-}
-
-.small-buttons-container {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 100px;
-  margin-top: 400px;
-}
-
-.small-drum-pad {
-  margin: 4px;
-  width: 120px;
+header {
+  line-height: 60px;
   height: 60px;
-  background-color: #ffffff;
-  border: 2px solid #c0bdbd;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: #fff;
-  text-transform: uppercase;
-  transition: background-color 1s;
-  box-shadow: -3px 0 6px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.small-drum-pad:hover {
-  background-color: #dddbdb;
-}
-
-#record {
-  background-color: red;
-  border: 2px solid rgb(245, 140, 140);
-}
-
-#record:hover {
-  background-color: rgb(233, 99, 99);
-  border: 2px solid rgb(233, 61, 61);
-}
-
-/* #nuevoContenedor {
-  width: 58vh;
-  height: 500px;
-  background-color: #1b3166;
-  padding: 10px;
-  border-radius: 5px;
-  position: absolute;
-  right: 10px;
-  top: 103px;
-} */
-/* Codigo Ross */
-h3 {
-  border: solid;
-}
-
-#buttonsContainer2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
-  padding-left: 3px;
-  padding-right: 3px;
-  /* padding-bottom: 7px;
-padding-top: 5px; */
-  max-width: 50%;
-  max-height: 60%;
-  border: 2px solid;
-  border-color: rgb(128, 128, 128, 20%);
-  background-color: rgb(128, 128, 128);
-  border-radius: 2%;
-}
-
-.buttons2 {
-  /* margin: bottom 3px; */
-  margin: 5px;
-  padding-top: 10px;
-  padding: 5px;
-  width: 30%;
-  height: 70px;
-  letter-spacing: 1px;
-  font-size: 10px;
-  font-weight: 999;
-  border: 2px solid;
-  border-color: rgb(234, 250, 241, 20%);
-  background-color: rgb(193, 188, 172);
-  border-radius: 5%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.buttons2:hover {
-  background-color: rgb(213, 245, 227);
-}
-
-/* Termina Ross */
-.contenedorPantalla {
-  width: 58vh;
-  height: 30vh;
-  background-color: #1d1d1e;
-  padding: 10px;
-  border-radius: 20px;
-  position: absolute;
-  left: 10px;
-  top: 50px;
-  border: 2px solid #525151;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-}
-
-.contenidoPantalla {
-  width: 70%;
-  height: 70%;
-  background-color: #111;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #1c1b1b;
-}
-
-.contenidoPantalla p {
-  color: #3a37bd;
-  padding: 10px;
-  margin: 0;
+  border: 1px solid black;
+  margin-bottom: 30px;
+  justify-content: space-around;
+  text-align: center;
+  background-color: rgb(39, 37, 37);
 }
 
 h1 {
-  color: rgb(223, 11, 11);
-  font-size: 19vh;
-  font-family: "Times New Roman", Times, serif;
-  display: flex;
-  position: absolute;
-  left: 50px;
-  top: 320px;
+  color: rgb(244, 241, 241);
 }
 
 h2 {
+  display: none;
   color: rgb(73, 73, 73);
-  font-size: 8vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  display: flex;
-  position: absolute;
-  left: 180px;
-  bottom: 390px;
 }
 
 p {
@@ -201,64 +40,143 @@ p {
     "Lucida Sans", Arial, sans-serif;
   font-size: 3vh;
   font-style: oblique;
+}
+
+footer {
+  padding: 50px;
+  text-align: center;
+}
+
+/*---------------------------*/
+
+/*Pad*/
+
+#buttonsContainer {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgb(46, 45, 45);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 2px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+#buttonsContainer > button {
+  margin: 7px;
+  background-color: #555;
+  border: 2px solid #777;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3),
+    0 5px 10px rgba(166, 159, 159, 0.3);
+}
+
+#buttonsContainer > button:hover {
+  background-color: #777;
+}
+
+/* botones rec, stop y play */
+#controlContainer {
   display: flex;
-  position: absolute;
-  left: 180px;
-  bottom: 390px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.round-button {
-  width: 250px;
-  height: 250px;
-  background-color: #161616;
-  border: 2px solid #504f4f;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 100px;
-  left: 180px;
+/* / Botones / */
+#controlContainer > button {
+  margin: 2px;
+  width: 80px;
+  background-color: #777;
+  color: white;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: -5px 0 6px rgba(18, 18, 18, 0.3), 0 5px 10px rgba(13, 13, 13, 0.3);
+}
+
+#controlContainer > button:hover {
+  background-color: #555;
+}
+
+/* Codigo Ross */
+
+#buttonsContainer2 {
+  display: none;
+  flex-flow: row wrap;
+  border: 4px solid #353434;
+  background-color: rgb(128, 128, 128);
+  border-radius: 2%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
 
-.round-button::before,
-.round-button::after {
-  content: "";
-  display: block;
-  width: 50%;
-  height: 50%;
-  border: 2px solid #1d1d1d;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+.contenedorPantalla {
+  display: none;
 }
 
-.round-button::after {
-  width: 40%;
-  height: 40%;
-  border: 2px solid #000;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+@media (min-width: 700px) {
+  main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #buttonsContainer2 {
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    padding: 0 20px 0;
+    margin-right: 32px;
+    margin-bottom: 75px;
+  }
+  .buttons2 {
+    font-size: 0.9rem;
+  }
+  .keyboard {
+    padding: 4px;
+    margin: 5px;
+    border: solid;
+    font-size: 1rem;
+    color: rgb(39, 37, 37);
+  }
 }
 
-#volume-slider {
-  width: 100px; /* Ancho del control deslizante */
-  height: 20px; /* Altura del control deslizante */
-  position: absolute;
-  bottom: 10px; /* Alineación en la esquina inferior derecha */
-  right: 10px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #333; /* Color de fondo del control deslizante */
-}
+@media (min-width: 1000px) {
+  .contenedorPantalla {
+    margin-bottom: 300px;
+    width: 57.5vh;
+    height: 30vh;
+    background-color: #1d1d1e;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #525151;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-#volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 40px; /* Ancho del control deslizante deslizante */
-  height: 40px; /* Altura del control deslizante deslizante */
-  background-color: #cec9c9; /* Color de fondo del control deslizante deslizante */
-  border: 2px solid #dfdddd; /* Borde del control deslizante deslizante */
-  border-radius: 0;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+  .contenidoPantalla {
+    width: 70%;
+    height: 70%;
+    background-color: #111;
+    overflow: auto;
+    border: 2px solid #1c1b1b;
+    box-shadow: 0 5px 10px rgba(44, 44, 44, 0.8);
+  }
+
+  .contenidoPantalla p {
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+  }
 }

@@ -7,74 +7,70 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <header>
-    <h1>AKAI</h1>
-    <h2>MPC-II</h2>
-    <p>by RosGuiRu-is</p>
+    <h1>DRUM PAD</h1>
   </header>
   <body>
-    <section id="buttonsContainer">
-      <button id="crash">crash</button>
-      <button id="hihat_close">hithat-close</button>
-      <button id="hihat_open">hithat-open</button>
-      <button id="kick">Kick</button>
-      <button id="ride">Ride</button>
-      <button id="snare">Snare</button>
-      <button id="tom_high">Tom High</button>
-      <button id="tom_low">Tom Low</button>
-      <button id="tom_mid">Tom Mid</button>
-    </section>
-
-    <section id="audiosContainer">
-      <audio class="crash" src="./audio/crash.wav"></audio>
-      <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
-      <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
-      <audio class="kick" src="./audio/kick.wav"></audio>
-      <audio class="ride" src="./audio/ride.wav"></audio>
-      <audio class="snare" src="./audio/snare.wav"></audio>
-      <audio class="tom_high" src="./audio/tom-high.wav"></audio>
-      <audio class="tom_low" src="./audio/tom-low.wav"></audio>
-      <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
-    </section>
-
-    <!-- contenedor ross -->
-
-    <section id="buttonsContainer2">
-      <h3>Keyboard</h3>
-      <button class="buttons2" id="">Key "Enter" plays Snare</button>
-      <button class="buttons2" id="">Key "Space" plays Kick</button>
-      <button class="buttons2" id="">Key "t" plays Tom-high</button>
-      <button class="buttons2" id="">Key "r" plays Tom-mind</button>
-      <button class="buttons2" id="">Key "e" plays Tom-low</button>
-      <button class="buttons2" id="">Key "p" plays Crash</button>
-      <button class="buttons2" id="">Key "o" plays Hihat-close</button>
-      <button class="buttons2" id="">Key "i" plays Hihat-open</button>
-      <button class="buttons2" id="">Key "u" plays Ride</button>
-    </section>
-
-    <div class="contenedorPantalla">
-      <div class="contenidoPantalla">
-        <!-- <p>Ross, Guille, Ruth, Luis</p> -->
+    <main>
+      <div class="contenedorPantalla">
+        <p class="contenidoPantalla"></p>
       </div>
-    </div>
 
-    <div class="small-buttons-container">
-      <button class="small-drum-pad" id="record">🔴 Rec</button>
-      <button class="small-drum-pad">▶️ Play</button>
-      <button class="small-drum-pad">⏹️ Stop</button>
-    </div>
+      <div class="contenedor1">
+        <section id="buttonsContainer">
+          <button id="crash" value="./audio/crash.wav">crash</button>
+          <button id="hihat_close" value="./audio/hihat-close.wav">
+            hithat-close
+          </button>
+          <button id="hihat_open" value="./audio/hihat-open.wav">
+            hithat-open
+          </button>
+          <button id="kick" value="./audio/kick.wav">Kick</button>
+          <button id="ride" value="./audio/ride.wav">Ride</button>
+          <button id="snare" value="./audio/snare.wav">Snare</button>
+          <button id="tom_high" value="./audio/tom-high.wav">Tom High</button>
+          <button id="tom_low" value="./audio/tom-low.wav">Tom Low</button>
+          <button id="tom_mid" value="./audio/tom-mid.wav">Tom Mid</button>
+        </section>
 
-    <!-- control de volumen -->
-    <input
-      id="volume-slider"
-      type="range"
-      min="0"
-      max="1"
-      step="0.01"
-      value="1"
-    />
+        <div id="controlContainer">
+          <button id="recordButton">🔴 Rec</button>
+          <button id="stopButton">⏹️ Stop</button>
+          <button id="playButton">▶️ Play</button>
+        </div>
+      </div>
 
-    <button class="round-button"></button>
+      <section id="audiosContainer">
+        <audio class="crash" src="./audio/crash.wav"></audio>
+        <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
+        <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
+        <audio class="kick" src="./audio/kick.wav"></audio>
+        <audio class="ride" src="./audio/ride.wav"></audio>
+        <audio class="snare" src="./audio/snare.wav"></audio>
+        <audio class="tom_high" src="./audio/tom-high.wav"></audio>
+        <audio class="tom_low" src="./audio/tom-low.wav"></audio>
+        <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
+      </section>
 
-    <script src="./js/script.js"></script>
+      <!-- Keys -->
+
+      <section id="buttonsContainer2">
+        <h3 class="keyboard">Keyboard</h3>
+        <p class="buttons2" id="">Key "Enter" plays Snare</p>
+        <p class="buttons2" id="">Key "Space" plays Kick</p>
+        <p class="buttons2" id="">Key "t" plays Tom-high</p>
+        <p class="buttons2" id="">Key "r" plays Tom-mind</p>
+        <p class="buttons2" id="">Key "e" plays Tom-low</p>
+        <p class="buttons2" id="">Key "p" plays Crash</p>
+        <p class="buttons2" id="">Key "o" plays Hihat-close</p>
+        <p class="buttons2" id="">Key "i" plays Hihat-open</p>
+        <p class="buttons2" id="">Key "u" plays Ride</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>by RosGuiRu-is 2023</p>
+    </footer>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
