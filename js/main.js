@@ -17,7 +17,7 @@ for (let btn of buttons) {
       btn.style.transform = "scale(1)";
     }, 200);
     //PLAY FUNCTION:
-    playSoundByClick(btn.id);
+    playSoundByClickAndKey(btn.id);
     btn.blur();
     //RECORD FUNCTION:
     if (isRecording) {
@@ -30,7 +30,7 @@ for (let btn of buttons) {
 //Añadimos un escuchador al body con un evento keydown, de forma que cuando se presione cualquier tecla se cree una variable que guardará el evento key. Luego llamamos a la función encargada de reproducir los sonidos y le pasamos como parámetro el valor comparado en el objeto keysArray, de modo que, por ejemplo, si presionas "Enter" envíe como parámetro "snare". Más abajo, la función playSoundsByKey recorrerá todos los audios y comparará este valor con la clase de cada uno de ellos, y si coincide, lo reproduce.
 document.body.addEventListener("keydown", (event) => {
   const key = event.key;
-  playSoundByKey(keysArray[key]);
+  playSoundByClickAndKey(keysArray[key]);
   if (isRecording) {
     //Activa la función grabadora.
     saveSound(keysArray[key]);
@@ -50,8 +50,9 @@ const keysArray = {
 };
 
 // FUNCTIONS:
-//Esta es la función que reproduce los sonidos del evento "click". Recorre el array "audios" y compara el id recibido con la clase de cada audio. Si todo está bien crea una nueva instancia del sonido, para poder reproducirlo fluidamente y no tener que esperar que se termine el anterior para reproducir el actual, y lo reproduce.
-function playSoundByClick(id) {
+//Esta es la función que reproduce los sonidos, tanto de los eventos "click" como de los "keys". Recorre el array "audios" y compara el id recibido con la clase de cada audio. Si todo está bien crea una nueva instancia del sonido, para poder reproducirlo fluidamente y no tener que esperar que se termine el anterior para reproducir el actual, y lo reproduce.
+//El el caso de las keys, recibe el parámetro "key" que es el valor contrastado en el array "keysArray" y lo usa para compararlo con la clase de los audios.
+function playSoundByClickAndKey(id) {
   for (let audio of audios) {
     const sound = audio;
     if (id === sound.className) {
@@ -64,30 +65,14 @@ function playSoundByClick(id) {
     }
   }
 }
-
-//Esta es la función que reproduce los sonidos del evento "keydown". Recibe el parámetro "key" que es el valor contrastado en el array "keysArray" y lo usa para compararlo con la clase de los audios. Si se cumple el requisito crea una nueva instancia del sonido y lo reproduce.
-//Además, si la variable "isRecording" es true, añade el atributo src al array "soundsArray", para reproducirlos cuando se pulse el botón "play". Todo esto se explica más abajo.
-function playSoundByKey(key) {
-  try {
-    for (let audio of audios) {
-      if (audio.className === key) {
-        const newAudio = new Audio(audio.src);
-        newAudio.play();
-      }
-    }
-  } catch (error) {
-    console.error(`Error al reproducir el audio: ${error.message}`);
-  }
-}
-
 //------------------------------------------------------
 //RECORD script:
 //Parte de la grabación y posterior reprodución de sonidos grabados.
 
 //Selections:
-const recordButton = document.getElementById("recordButton");
-const stopButton = document.getElementById("stopButton");
-const playButton = document.getElementById("playButton");
+const recordButton = document.querySelector(".recordButton");
+const stopButton = document.querySelector(".stopButton");
+const playButton = document.querySelector(".playButton");
 let pad = document.querySelector(".contenidoPantalla");
 
 //vars:
@@ -134,7 +119,7 @@ playButton.addEventListener("click", () => {
   //STYLES:
   playButton.style.backgroundColor = "green";
   playButton.style.transform = "scale(0.93)";
-  recordButton.style.backgroundColor = "#777";
+  playButton.style.backgroundColor = "green";
   recordButton.style.transform = "scale(1)";
   //PAD:
   clearInterval(interval2); //Para activar el mensaje en el PAD.
@@ -159,6 +144,7 @@ stopButton.addEventListener("click", () => {
   playButton.style.transform = "scale(1)";
   setTimeout(() => {
     stopButton.style.transform = "scale(1)";
+    stopButton.style.backgroundColor = "#777";
   }, 200);
   //PAD:
   clearInterval(interval1); //Termina todos los intervalos.

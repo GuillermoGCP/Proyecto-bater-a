@@ -1,0 +1,91 @@
+@media (min-width: 800px) {
+  main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    margin-left: 50px;
+  }
+
+  /*Keys panel*/
+  #buttonsContainer2 {
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    padding: 0 20px 0;
+    margin-right: 32px;
+    margin-bottom: 75px;
+  }
+  .buttons2 {
+    font-size: 0.9rem;
+  }
+
+  .keyboard {
+    padding: 4px;
+    margin: 5px;
+    /* border: solid; */
+    font-size: 1rem;
+    color: rgb(39, 37, 37);
+  }
+}
+
+@media (min-width: 1150px) {
+  #buttonsContainer {
+    width: 35rem;
+    height: 35rem;
+  }
+  #buttonsContainer2 {
+    width: 280px;
+    min-width: 262px;
+    height: 280px;
+    padding: 0 20px 0;
+    margin-right: 150px;
+    margin-bottom: 75px;
+  }
+}
+
+@media (min-width: 1450px) {
+  /*Pantalla*/
+  .contenedorPantalla {
+    margin-bottom: 190px;
+    width: 55vh;
+    min-width: 386px;
+    height: 30vh;
+    background-color: #1d1d1e;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #525151;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 70px;
+  }
+
+  .contenidoPantalla {
+    width: 70%;
+    height: 70%;
+    background-color: #111;
+    overflow: auto;
+    border: 2px solid #1c1b1b;
+    box-shadow: 0 5px 10px rgba(44, 44, 44, 0.8);
+  }
+
+  .contenidoPantalla p {
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+  }
+
+  /*Drum Pad*/
+  #buttonsContainer {
+    margin-right: 60px;
+  }
+
+  /*Rec, play and stop buttons*/
+  .controlContainer {
+    margin-right: 55px;
+  }
+}
