@@ -3,6 +3,11 @@
 //SELECTORS:
 const buttons = document.querySelectorAll("#buttonsContainer > button");
 const audios = document.querySelectorAll("#audiosContainer > audio");
+const sillaTerror = document.getElementById("sillaTerror"); //Botón rec
+const efectoStop = document.getElementById("efectoStop"); //Botón stop
+const iconPad = document.getElementById("icono"); //Caracuero
+const iconPad2 = document.getElementById("icono2"); //Ataud
+const iconPad3 = document.getElementById("icono3"); //Calavera
 
 //EVENTS BY CLICK:
 //Recorremos el array buttons y le añadimos un escuchador con un evento click. A cada click aplicaremos estilos a los botones, activaremos la función que reproduce los sonidos y, si se cumple la condición establecida, activaremos la función saveSound(), que guardará los sonidos para reproducirlos luego.
@@ -16,6 +21,14 @@ for (let btn of buttons) {
       btn.style.backgroundColor = "#555";
       btn.style.transform = "scale(1)";
     }, 200);
+    //Imagen Caracuero
+    if (anchoVentana >= 1450) {
+      iconPad.style.display = "block";
+      setTimeout(() => {
+        iconPad.style.display = "none";
+      }, 200);
+    }
+
     //PLAY FUNCTION:
     playSoundByClickAndKey(btn.id);
     btn.blur();
@@ -92,19 +105,26 @@ let index = 0;
 //Añadimos estilos al botón y anulamos los estilos del botón play, si los hubiera.
 //Por último terminamos el intervalo anterior, si estuviera activo, y activamos un intervalo de un segundo para activar la función que se encarga de escribir los mensajes en el PAD (ver más abajo).
 recordButton.addEventListener("click", () => {
+  sillaTerror.play(); //Eecto de sonido del botón.
   soundsArray = []; //Reinicia el array de sonidos guardados.
   isRecording = true; //Activa la grabación de clicks en el array.
   recordButton.blur(); //Saca el foco sobre el botón.
   //STYLES:
-  recordButton.style.backgroundColor = "red";
-  recordButton.style.transform = "scale(0.93)";
-  playButton.style.backgroundColor = "#777";
-  playButton.style.transform = "scale(1)";
+  recordButton.style.backgroundColor = "red"; //Al hacer click se pone rojo.
+  recordButton.style.transition = "transform 1.3s";
+  recordButton.style.transform = "scale(0.93)"; //Al hacer click se hace pequeño, creando el efecto de estar pulsado.
+  playButton.style.backgroundColor = "#777"; //Aquí se reinician los estilos del botón play.
+  playButton.style.transform = "scale(1)"; //Se reinicia la escala del botón play, de modo que al pulsar uno se reinicien los estilos del otro.
   //PAD:
   clearInterval(interval1); //Activa la función para escribir el el PAD.
   if (!writing) {
     writing = true;
     interval2 = setInterval(PadContentRecording, 800);
+  }
+  //Imágenes de terror:
+  if (anchoVentana >= 1450) {
+    iconPad3.style.display = "block"; //Icono de una calavera;
+    iconPad2.style.display = "none"; //Borramos icono del ataud.
   }
 });
 
@@ -119,7 +139,7 @@ playButton.addEventListener("click", () => {
   //STYLES:
   playButton.style.backgroundColor = "green";
   playButton.style.transform = "scale(0.93)";
-  playButton.style.backgroundColor = "green";
+  recordButton.style.backgroundColor = "#777";
   recordButton.style.transform = "scale(1)";
   //PAD:
   clearInterval(interval2); //Para activar el mensaje en el PAD.
@@ -127,10 +147,15 @@ playButton.addEventListener("click", () => {
     writing = true;
     interval1 = setInterval(PadContentPlaying, 800);
   }
+  //Imágenes de terror:
+  if (anchoVentana >= 1450) {
+    iconPad2.style.display = "block"; //Icono de un ataud;
+    iconPad3.style.display = "none"; //Borramos icono de la calavera.
+  }
 });
 
 stopButton.addEventListener("click", () => {
-  console.log(soundsArray);
+  efectoStop.play();
   isRecording = false; //Detiene la grabación de sonidos.
   isPlaying = false; //Desactiva el botón play.
   writing = false; //Desactiva los mensajes del PAD.
@@ -150,6 +175,11 @@ stopButton.addEventListener("click", () => {
   clearInterval(interval1); //Termina todos los intervalos.
   clearInterval(interval2);
   pad.textContent = "";
+  //Imágenes de terror:
+  if (anchoVentana >= 1450) {
+    iconPad2.style.display = "none"; //Borramos icono del ataud.
+    iconPad3.style.display = "none"; //Borramos icono de la calavera.
+  }
 });
 
 //FUNCTIONS:
@@ -197,7 +227,10 @@ function playRecordedSounds() {
 //Estas son las funciones que escriben en el PAD el mensaje de grabando y reproduciendo:
 function PadContentPlaying() {
   if (hideOrNot) {
-    pad.textContent = "Playing...";
+    pad.innerHTML = `
+    <p style="font-style: italic;">Now, playing sounds from</p>
+    <p style="color: red; font-weight: bold;">HELL</p>
+  `;
     hideOrNot = false;
   } else if (!hideOrNot) {
     pad.textContent = "";
@@ -206,10 +239,23 @@ function PadContentPlaying() {
 }
 function PadContentRecording() {
   if (hideOrNot) {
-    pad.textContent = "Recording...";
+    pad.innerHTML = `
+    <p style="color: red; font-weight: bold;">¡DANGER!</p>
+    <p style="font-style: italic;">Recording in progress...</p>
+  `;
     hideOrNot = false;
   } else if (!hideOrNot) {
     pad.textContent = "";
     hideOrNot = true;
   }
 }
+
+//Escuchador para que las imágenes de terror solo se muestren en pantalla completa.
+//Nota: Lo hacemos así porque jugamos con el "display:none" y "display: block" para hacerlas aparecer cuando pulsamos los botones.
+let anchoVentana;
+// Función para capturar el ancho de la ventana
+function capturarAnchoVentana() {
+  anchoVentana = window.innerWidth;
+}
+window.addEventListener("resize", capturarAnchoVentana);
+capturarAnchoVentana();

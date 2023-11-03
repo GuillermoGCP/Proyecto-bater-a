@@ -10,26 +10,51 @@
 
   <body>
     <header>
-      <h1>DRUM PAD</h1>
+      <h1>HELL PAD</h1>
     </header>
     <main>
+      <!--Pad para mostrar mensajes-->
       <div class="contenedorPantalla">
         <p class="contenidoPantalla"></p>
       </div>
 
+      <!--Imagen de caracuero-->
+      <img
+        id="icono"
+        class="oculto"
+        src="./img/icons8-zombi-80.png"
+        alt="Icono de Caracuero"
+      />
+      <!--Imagen de ataud-->
+      <img
+        id="icono2"
+        class="oculto2"
+        src="./img/icons8-ataúd-80.png"
+        alt="Icono de un ataud"
+      />
+      <!--Imagen de la calavera-->
+      <img
+        id="icono3"
+        class="oculto3"
+        src="./img/icons8-calavera-64.png"
+        alt="Icono de una calavera"
+      />
+
+      <!--Contenedor de botones del Drum Pad-->
       <div class="contenedor1">
         <section id="buttonsContainer">
-          <button id="crash">crash</button>
-          <button id="hihat_close">hithat-close</button>
-          <button id="hihat_open">hithat-open</button>
-          <button id="kick">Kick</button>
-          <button id="ride">Ride</button>
-          <button id="snare">Snare</button>
-          <button id="tom_high">Tom High</button>
-          <button id="tom_low">Tom Low</button>
-          <button id="tom_mid">Tom Mid</button>
+          <button id="crash">CRASH</button>
+          <button id="hihat_close">HIHAT CLOSE</button>
+          <button id="hihat_open">HIHAT OPEN</button>
+          <button id="kick">KICK</button>
+          <button id="ride">RIDE</button>
+          <button id="snare">SNARE</button>
+          <button id="tom_high">TOM HIGH</button>
+          <button id="tom_low">TOM LOW</button>
+          <button id="tom_mid">TOM MID</button>
         </section>
 
+        <!--Contenedor de botones-->
         <div class="controlContainer">
           <button class="recordButton">🔴 Rec</button>
           <button class="stopButton">⏹️ Stop</button>
@@ -37,19 +62,38 @@
         </div>
       </div>
 
+      <!--Contenedor de audios-->
       <section id="audiosContainer">
-        <audio class="crash" src="./audio/crash.wav"></audio>
+        <audio
+          class="crash"
+          src="./audio/cymbale-shitty-240720-39404.mp3"
+        ></audio>
         <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
-        <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
-        <audio class="kick" src="./audio/kick.wav"></audio>
+        <audio
+          class="hihat_open"
+          src="./audio/open-hat-snake-100639.mp3"
+        ></audio>
+        <audio class="kick" src="./audio/very-punchy-kick-100839.mp3"></audio>
         <audio class="ride" src="./audio/ride.wav"></audio>
-        <audio class="snare" src="./audio/snare.wav"></audio>
-        <audio class="tom_high" src="./audio/tom-high.wav"></audio>
-        <audio class="tom_low" src="./audio/tom-low.wav"></audio>
-        <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
+        <audio
+          class="snare"
+          src="./audio/wood-snare-sample-2-106097.mp3"
+        ></audio>
+        <audio class="tom_high" src="./audio/tom1-short-47951.mp3"></audio>
+        <audio class="tom_low" src="./audio/floor_tom-96475.mp3"></audio>
+        <audio class="tom_mid" src="./audio/tom2short-100636.mp3"></audio>
       </section>
 
-      <!-- Keys -->
+      <!--Efectos especiales-->
+      <section id="efectosEspeciales">
+        <audio
+          src="./audio/wood-creak-single-v3-14657.mp3"
+          id="sillaTerror"
+        ></audio>
+        <audio src="./audio/click-21156.mp3" id="efectoStop"></audio>
+      </section>
+
+      <!-- Keys del teclado-->
 
       <section id="buttonsContainer2">
         <h3 class="keyboard">Keyboard</h3>

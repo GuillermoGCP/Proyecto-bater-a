@@ -1,5 +1,11 @@
-/* General styles */
+@font-face {
+  font-family: "letrasHorror";
+  src: url("../fonts/horrorcomicsdemoregular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
+/* Main styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,30 +14,28 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: #d4d1d1;
+  background-image: url(../img/telaraña.jpg);
+  background-size: cover;
   height: 100vh;
 }
 
 header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
   line-height: 60px;
   height: 60px;
-  display: flex;
   border: 1px solid black;
-  margin-bottom: 30px;
-  justify-content: space-around;
   text-align: center;
   background-color: rgb(39, 37, 37);
 }
 
 h1 {
-  color: rgb(244, 241, 241);
-}
-
-h2 {
-  display: none;
-  color: rgb(73, 73, 73);
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(217, 18, 18);
+  font-family: "letrasHorror", seriff;
+  font-size: 3rem;
+  letter-spacing: 1.3rem;
 }
 
 p {
@@ -47,19 +51,14 @@ footer {
   text-align: center;
 }
 
-/*---------------------------*/
-
 /*Drum Pad*/
-
 #buttonsContainer {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px auto 0;
   width: 25rem;
   height: 25rem;
   background-color: rgb(46, 45, 45);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   border-radius: 2px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
@@ -69,21 +68,42 @@ footer {
   background-color: #555;
   border: 2px solid #605e5e;
   border-radius: 5px;
-  cursor: pointer;
   color: #fff;
-  text-transform: uppercase;
   font-weight: bold;
   transition: background-color 0.2s;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3),
     0 5px 10px rgba(166, 159, 159, 0.3);
+  cursor: url("../img/556.png"), auto;
 }
 
-#buttonsContainer > button:hover {
-  background-color: #777;
+#buttonsContainer > button:active {
+  cursor: url("../img/30p.png"), auto;
+}
+
+/*Imágenes de terror*/
+.oculto {
+  position: absolute;
+  top: 600px;
+  left: 85px;
+  display: none; /*Caracuero*/
+  width: 200px;
+}
+.oculto2 {
+  position: absolute;
+  top: 600px;
+  left: 85px;
+  display: none; /*Ataud*/
+  width: 200px;
+}
+.oculto3 {
+  position: absolute;
+  top: 125px;
+  left: 105px;
+  display: none; /*Calavera*/
+  width: 100px;
 }
 
 /* Rec, stop and play buttons*/
-
 .controlContainer {
   display: flex;
   justify-content: center;
@@ -92,12 +112,12 @@ footer {
 
 .controlContainer > button {
   margin: 2px;
+  padding: 10px 20px;
   width: 80px;
   background-color: #777;
   color: white;
   border: 1px solid #999;
   border-radius: 5px;
-  padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.2s;
   box-shadow: -5px 0 6px rgba(18, 18, 18, 0.3), 0 5px 10px rgba(13, 13, 13, 0.3);
@@ -106,16 +126,13 @@ footer {
 .controlContainer > button:hover {
   background-color: #555;
 }
+.controlContainer > button {
+  cursor: url("../img/icoerr-64.png"), auto;
+}
 
 /* Keys panel */
-
 #buttonsContainer2 {
   display: none;
-  flex-flow: row wrap;
-  border: 4px solid #353434;
-  background-color: rgb(128, 128, 128);
-  border-radius: 2%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 /*Pantalla*/
