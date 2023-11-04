@@ -5,9 +5,9 @@ const buttons = document.querySelectorAll("#buttonsContainer > button");
 const audios = document.querySelectorAll("#audiosContainer > audio");
 const sillaTerror = document.getElementById("sillaTerror"); //Botón rec
 const efectoStop = document.getElementById("efectoStop"); //Botón stop
-const iconPad = document.getElementById("icono"); //Caracuero
-const iconPad2 = document.getElementById("icono2"); //Ataud
-const iconPad3 = document.getElementById("icono3"); //Calavera
+const caracuero = document.getElementById("icono"); //Caracuero
+const ataud = document.getElementById("icono2"); //Ataud
+const calavera = document.getElementById("icono3"); //Calavera
 
 //EVENTS BY CLICK:
 //Recorremos el array buttons y le añadimos un escuchador con un evento click. A cada click aplicaremos estilos a los botones, activaremos la función que reproduce los sonidos y, si se cumple la condición establecida, activaremos la función saveSound(), que guardará los sonidos para reproducirlos luego.
@@ -18,17 +18,16 @@ for (let btn of buttons) {
     btn.style.backgroundColor = "red";
     btn.style.transform = "scale(0.93)";
     setTimeout(() => {
-      btn.style.backgroundColor = "#555";
+      btn.style.backgroundColor = "";
       btn.style.transform = "scale(1)";
     }, 200);
     //Imagen Caracuero
     if (anchoVentana >= 1450) {
-      iconPad.style.display = "block";
+      caracuero.style.display = "block";
       setTimeout(() => {
-        iconPad.style.display = "none";
+        caracuero.style.display = "none";
       }, 200);
     }
-
     //PLAY FUNCTION:
     playSoundByClickAndKey(btn.id);
     btn.blur();
@@ -43,10 +42,30 @@ for (let btn of buttons) {
 //Añadimos un escuchador al body con un evento keydown, de forma que cuando se presione cualquier tecla se cree una variable que guardará el evento key. Luego llamamos a la función encargada de reproducir los sonidos y le pasamos como parámetro el valor comparado en el objeto keysArray, de modo que, por ejemplo, si presionas "Enter" envíe como parámetro "snare". Más abajo, la función playSoundsByKey recorrerá todos los audios y comparará este valor con la clase de cada uno de ellos, y si coincide, lo reproduce.
 document.body.addEventListener("keydown", (event) => {
   const key = event.key;
+  // Obtiene el botón correspondiente a la tecla presionada
+  const button = document.getElementById(keysArray[key]);
+
+  //Activa la función reproductora.
   playSoundByClickAndKey(keysArray[key]);
+
+  //Si se cumple la condición, activa la función grabadora.
   if (isRecording) {
     //Activa la función grabadora.
     saveSound(keysArray[key]);
+  }
+
+  //Se pongan los botones del pad en rojo también al pulsar el teclado.
+  button.style.backgroundColor = "red";
+  setTimeout(() => {
+    button.style.backgroundColor = ""; // Restablece el color inicial
+  }, 200);
+
+  //Mostrar a Caracuero.
+  if (anchoVentana >= 1450) {
+    caracuero.style.display = "block";
+    setTimeout(() => {
+      caracuero.style.display = "none";
+    }, 200);
   }
 });
 
@@ -113,7 +132,7 @@ recordButton.addEventListener("click", () => {
   recordButton.style.backgroundColor = "red"; //Al hacer click se pone rojo.
   recordButton.style.transition = "transform 1.3s";
   recordButton.style.transform = "scale(0.93)"; //Al hacer click se hace pequeño, creando el efecto de estar pulsado.
-  playButton.style.backgroundColor = "#777"; //Aquí se reinician los estilos del botón play.
+  playButton.style.backgroundColor = ""; //Aquí se reinician los estilos del botón play.
   playButton.style.transform = "scale(1)"; //Se reinicia la escala del botón play, de modo que al pulsar uno se reinicien los estilos del otro.
   //PAD:
   clearInterval(interval1); //Activa la función para escribir el el PAD.
@@ -123,8 +142,8 @@ recordButton.addEventListener("click", () => {
   }
   //Imágenes de terror:
   if (anchoVentana >= 1450) {
-    iconPad3.style.display = "block"; //Icono de una calavera;
-    iconPad2.style.display = "none"; //Borramos icono del ataud.
+    calavera.style.display = "block"; //Icono de una calavera;
+    ataud.style.display = "none"; //Borramos icono del ataud.
   }
 });
 
@@ -139,7 +158,7 @@ playButton.addEventListener("click", () => {
   //STYLES:
   playButton.style.backgroundColor = "green";
   playButton.style.transform = "scale(0.93)";
-  recordButton.style.backgroundColor = "#777";
+  recordButton.style.backgroundColor = "";
   recordButton.style.transform = "scale(1)";
   //PAD:
   clearInterval(interval2); //Para activar el mensaje en el PAD.
@@ -149,12 +168,13 @@ playButton.addEventListener("click", () => {
   }
   //Imágenes de terror:
   if (anchoVentana >= 1450) {
-    iconPad2.style.display = "block"; //Icono de un ataud;
-    iconPad3.style.display = "none"; //Borramos icono de la calavera.
+    ataud.style.display = "block"; //Icono de un ataud;
+    calavera.style.display = "none"; //Borramos icono de la calavera.
   }
 });
 
 stopButton.addEventListener("click", () => {
+  console.log(soundsArray);
   efectoStop.play();
   isRecording = false; //Detiene la grabación de sonidos.
   isPlaying = false; //Desactiva el botón play.
@@ -163,13 +183,13 @@ stopButton.addEventListener("click", () => {
   stopButton.blur(); //Saca el foto en el botón stop.
   //STYLES:
   stopButton.style.transform = "scale(0.93)";
-  recordButton.style.backgroundColor = "#777";
+  recordButton.style.backgroundColor = "";
   recordButton.style.transform = "scale(1)";
-  playButton.style.backgroundColor = "#777";
+  playButton.style.backgroundColor = "";
   playButton.style.transform = "scale(1)";
   setTimeout(() => {
     stopButton.style.transform = "scale(1)";
-    stopButton.style.backgroundColor = "#777";
+    stopButton.style.backgroundColor = "";
   }, 200);
   //PAD:
   clearInterval(interval1); //Termina todos los intervalos.
@@ -177,8 +197,8 @@ stopButton.addEventListener("click", () => {
   pad.textContent = "";
   //Imágenes de terror:
   if (anchoVentana >= 1450) {
-    iconPad2.style.display = "none"; //Borramos icono del ataud.
-    iconPad3.style.display = "none"; //Borramos icono de la calavera.
+    ataud.style.display = "none"; //Borramos icono del ataud.
+    calavera.style.display = "none"; //Borramos icono de la calavera.
   }
 });
 

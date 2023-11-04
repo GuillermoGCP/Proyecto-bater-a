@@ -92,9 +92,8 @@
   #buttonsContainer {
     margin-right: 60px;
   }
-
-  /*Rec, play and stop buttons*/
-  .controlContainer {
-    margin-right: 55px;
-  }
+}
+/* pads */
+#buttonsContainer {
+  margin-left: 65px;
 }
