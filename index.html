@@ -1,44 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto batería</title>
+    <title>Drum Pad</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mediaQuerys.css" />
   </head>
 
   <body>
-    <section id="audiosContainer">
-      <audio class="crash" src="./audio/crash.wav"></audio>
-      <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
-      <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
-      <audio class="kick" src="./audio/kick.wav"></audio>
-      <audio class="ride" src="./audio/ride.wav"></audio>
-      <audio class="snare" src="./audio/snare.wav"></audio>
-      <audio class="tom_high" src="./audio/tom-high.wav"></audio>
-      <audio class="tom_low" src="./audio/tom-low.wav"></audio>
-      <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
-    </section>
+    <header>
+      <h1>DRUM PAD</h1>
+    </header>
+    <main>
+      <div class="contenedorPantalla">
+        <p class="contenidoPantalla"></p>
+      </div>
 
-    <section id="buttonsContainer">
-      <button id="crash">crash</button>
-      <button id="hihat_close">hithat-close</button>
-      <button id="hihat_open">hithat-open</button>
-      <button id="kick">Kick</button>
-      <button id="ride">Ride</button>
-      <button id="snare">Snare</button>
-      <button id="tom_high">Tom High</button>
-      <button id="tom_low">Tom Low</button>
-      <button id="tom_mid">Tom Mid</button>
-    </section>
-    
-    <section>grabacion y reproduccion
+      <div class="contenedor1">
+        <section id="buttonsContainer">
+          <button id="crash">crash</button>
+          <button id="hihat_close">hithat-close</button>
+          <button id="hihat_open">hithat-open</button>
+          <button id="kick">Kick</button>
+          <button id="ride">Ride</button>
+          <button id="snare">Snare</button>
+          <button id="tom_high">Tom High</button>
+          <button id="tom_low">Tom Low</button>
+          <button id="tom_mid">Tom Mid</button>
+        </section>
 
-      <button id="record">Grabar</button>
-      <button id="stopRecord">Stop</button>
-      <button id="play">Reproducir</button>
-    </section>
+        <div class="controlContainer">
+          <button class="recordButton">🔴 Rec</button>
+          <button class="stopButton">⏹️ Stop</button>
+          <button class="playButton">▶️ Play</button>
+        </div>
+      </div>
 
-    <script type="module" src="./js/main.js"></script>
+      <section id="audiosContainer">
+        <audio class="crash" src="./audio/crash.wav"></audio>
+        <audio class="hihat_close" src="./audio/hihat-close.wav"></audio>
+        <audio class="hihat_open" src="./audio/hihat-open.wav"></audio>
+        <audio class="kick" src="./audio/kick.wav"></audio>
+        <audio class="ride" src="./audio/ride.wav"></audio>
+        <audio class="snare" src="./audio/snare.wav"></audio>
+        <audio class="tom_high" src="./audio/tom-high.wav"></audio>
+        <audio class="tom_low" src="./audio/tom-low.wav"></audio>
+        <audio class="tom_mid" src="./audio/tom-mid.wav"></audio>
+      </section>
+
+      <!-- Keys -->
+
+      <section id="buttonsContainer2">
+        <h3 class="keyboard">Keyboard</h3>
+        <p class="buttons2" id="">Key "Enter" plays Snare</p>
+        <p class="buttons2" id="">Key "Space" plays Kick</p>
+        <p class="buttons2" id="">Key "t" plays Tom-high</p>
+        <p class="buttons2" id="">Key "r" plays Tom-mind</p>
+        <p class="buttons2" id="">Key "e" plays Tom-low</p>
+        <p class="buttons2" id="">Key "p" plays Crash</p>
+        <p class="buttons2" id="">Key "o" plays Hihat-close</p>
+        <p class="buttons2" id="">Key "i" plays Hihat-open</p>
+        <p class="buttons2" id="">Key "u" plays Ride</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>by RosGuiRu-is 2023</p>
+    </footer>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
