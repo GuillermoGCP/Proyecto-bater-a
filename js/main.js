@@ -135,10 +135,10 @@ recordButton.addEventListener("click", () => {
   playButton.style.backgroundColor = ""; //Aquí se reinician los estilos del botón play.
   playButton.style.transform = "scale(1)"; //Se reinicia la escala del botón play, de modo que al pulsar uno se reinicien los estilos del otro.
   //PAD:
-  clearInterval(interval1); //Activa la función para escribir el el PAD.
+  clearInterval(interval1);
   if (!writing) {
     writing = true;
-    interval2 = setInterval(PadContentRecording, 800);
+    interval2 = setInterval(PadContentRecording, 800); //Activa la función para escribir el el PAD.
   }
   //Imágenes de terror:
   if (anchoVentana >= 1450) {

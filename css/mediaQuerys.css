@@ -3,8 +3,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 30px;
-    margin-left: 50px;
   }
 
   /*Keys panel*/
@@ -46,8 +44,6 @@
     min-width: 262px;
     height: 280px;
     padding: 0 20px 0;
-    margin-right: 150px;
-    margin-bottom: 75px;
   }
 }
 
@@ -58,6 +54,7 @@
   /*Pantalla*/
   .contenedorPantalla {
     margin-bottom: 190px;
+    margin-left: 50px;
     width: 55vh;
     min-width: 300px;
     height: 30vh;
@@ -87,13 +84,4 @@
     padding: 10px;
     margin: 0;
   }
-
-  /*Drum Pad*/
-  #buttonsContainer {
-    margin-right: 60px;
-  }
-}
-/* pads */
-#buttonsContainer {
-  margin-left: 65px;
 }

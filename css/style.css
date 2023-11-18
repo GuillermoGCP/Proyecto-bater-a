@@ -52,10 +52,17 @@ footer {
 }
 
 /*Drum Pad*/
+.contenedor1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
 #buttonsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 20px auto 0;
+  margin-top: 30px;
   width: 25rem;
   height: 25rem;
   background-color: rgb(46, 45, 45);
